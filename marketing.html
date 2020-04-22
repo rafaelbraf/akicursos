@@ -1,0 +1,175 @@
+<DOCTYPE html!>
+    <html lang=pt>
+
+    <head>
+        <meta charset=UTF-8>
+        <title>Aki cursos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <link rel="stylesheet" href="css/estilo.css">
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="img/logo.png" width="120" height="40">
+                </a>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="index.html">
+                        Home
+                    </a>
+
+                    <a class="navbar-item" href="promocoes.html">
+                        Promoções
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Categorias
+                        </a>
+
+                        <div class="navbar-dropdown">                        
+                            <a class="navbar-item" href="programacao.html">
+                                Programação &nbsp;<i class="fas fa-laptop-code"></i>
+                            </a>
+                            <a class="navbar-item" href="games.html">
+                                Games &nbsp; <i class="fas fa-gamepad"></i>
+                            </a>
+                            <a class="navbar-item" href="marketing.html">
+                                Marketing &nbsp; <i class="fas fa-utensils"></i>
+                            </a>
+                            <a class="navbar-item" href="investimentos.html">
+                                Investimentos &nbsp; <i class="fas fa-chart-area"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- BARRA DE PESQUISA -->
+        <section class="section is-primary">
+            <div class="field is-grouped">
+                <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="O que você procura?">
+                </p>
+                <p class="control">
+                    <a class="button is-info">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h1 class="title">Marketing</h1>
+            <div class="columns" id="cursos-marketing"></div>            
+        </section>
+
+        <!-- MODAL -->
+        <div id="modal-ter" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p id="modal-card-title"></p>
+                    <button class="delete" aria-label="close" id="botao-fechar" onclick="fecharModal()"></button>
+                </header>
+                <section class="modal-card-body">
+                    <div class="content">
+                        <h1 id="modal-titulo"></h1>
+                        <p id="modal-descricao"></p>
+                    </div>
+                </section>
+                <footer class="modal-card-foot" id="footer-modal">
+                    
+                </footer>
+            </div>
+        </div>
+
+        <!-- RODAPÉ -->
+        <footer style="background-color:#33E5FF;" class="footer">
+            <div class="content has-text-centered">
+                <img src="img/logo.png" width="300" height="40">
+            </div>
+            <div class="columns">
+                <div class="column is-4">
+                    <p class="subtitle  is-4 has-text-rigth">Sobre nós:</p>
+                    <h4>Feito por:</h4>
+                    <i class="fab fa-linkedin"></i> <a target="_blank"
+                        href="https://www.linkedin.com/in/wesley-almeida-fernandes/" style="color:inherit;">Wesley
+                        Fernandes</a> </br>
+                    <i class="fab fa-linkedin"></i> <a target="_blank" href="https://www.linkedin.com/in/rafabrunof/"
+                        style="color:inherit;">Rafael Bruno</a>
+                </div>
+                <div class="column is-4">
+                    <p class="subtitle is-4 has-text-rigth">Redes Sociais</p>
+                    <i class="fab fa-linkedin"></i> Linkedin </br>
+                    <i class="fab fa-facebook-square"></i> Facebook </br>
+                    <i class="fab fa-instagram"></i> Instagram </br>
+                    <i class="fab fa-twitter"></i> Twitter
+                </div>
+                <div class="column is-4">
+                    <p class="subtitle is-4 has-text-rigth">Receba novidades:</p>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-medium" type="email" placeholder="Email">
+                        <span class="icon is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div> </br>
+                    <label class="checkbox">
+                        <input type="checkbox"> Programação
+                    </label> </br>
+                    <label class="checkbox">
+                        <input type="checkbox"> Games
+                    </label> </br>
+                    <label class="checkbox">
+                        <input type="checkbox"> Investimentos
+                    </label> </br>
+                    <label class="checkbox">
+                        <input type="checkbox"> Alimentação
+                    </label> </br>
+                    <label class="checkbox">
+                        <input type="checkbox"> Saúde
+                    </label>
+                    <div class="columns">
+                        <div class="column is-9"></div>
+                        <div class="column">
+                            <button class="button is-dark">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            (function () {
+                var burger = document.querySelector('.burger');
+                var nav = document.querySelector('#' + burger.dataset.target);
+
+                burger.addEventListener('click', function () {
+                    burger.classList.toggle('is-active');
+                    nav.classList.toggle('is-active');
+                });
+            })();
+        </script>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/marketing.js"></script>
+
+    </body>
+
+    </html>
