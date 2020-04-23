@@ -17,6 +17,7 @@ var listaCursosInvestimentos = [];
 var modalCardTitulo = document.getElementById('modal-card-title');
 var modalCardNomeCurso = document.getElementById('modal-titulo');
 var modalCardDescricao = document.getElementById('modal-descricao');
+var modalImagem = document.getElementById('imagem');
 var botaoFechar = document.getElementById('botao-fechar');
 
 //  PASSANDO RESULTADOS DA API PARA UMA FUNCAO
@@ -152,6 +153,8 @@ function mostrarCursoPorId(id) {
     var footerModal = document.getElementById('footer-modal');
     var tempFooter = "";
 
+    var imagem = "";
+
     $.ajax({
         type: "GET",
         url: `https://akicursosapi.herokuapp.com/api/curso/id/${id}`,
@@ -161,6 +164,10 @@ function mostrarCursoPorId(id) {
             modalCardTitulo.innerHTML = curso["categoria"];
             modalCardNomeCurso.innerHTML = curso["nome"];
             modalCardDescricao.innerHTML = curso["descricao"];
+            imagem = `
+                <img src="${curso["urlImagem"]}" width="250">
+            `;
+            modalImagem.innerHTML = imagem;
             tempFooter = `
                 <a href="${curso["urlCurso"]}" target="blank">
                     <button class="button is-fullwidth is-dark" id="button">Ir para curso</button>
