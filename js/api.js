@@ -19,6 +19,7 @@ var modalCardNomeCurso = document.getElementById('modal-titulo');
 var modalCardDescricao = document.getElementById('modal-descricao');
 var modalImagem = document.getElementById('imagem');
 var botaoFechar = document.getElementById('botao-fechar');
+var modalBotaoCurso = document.getElementById('botao-curso');
 
 //  PASSANDO RESULTADOS DA API PARA UMA FUNCAO
 function main() {
@@ -152,6 +153,7 @@ function mostrarCursoPorId(id) {
     document.querySelector('#modal-ter').classList.add("is-active");
     var footerModal = document.getElementById('footer-modal');
     var tempFooter = "";
+    var tempBotao = "";
 
     var imagem = "";
 
@@ -164,16 +166,14 @@ function mostrarCursoPorId(id) {
             modalCardTitulo.innerHTML = curso["categoria"];
             modalCardNomeCurso.innerHTML = curso["nome"];
             modalCardDescricao.innerHTML = curso["descricao"];
-            imagem = `
+            modalImagem.innerHTML = `
                 <img src="${curso["urlImagem"]}" width="250">
             `;
-            modalImagem.innerHTML = imagem;
-            tempFooter = `
+            modalBotaoCurso.innerHTML = `
                 <a href="${curso["urlCurso"]}" target="blank">
                     <button class="button is-fullwidth is-dark" id="button">Ir para curso</button>
                 </a>
             `;
-            footerModal.innerHTML = tempFooter;
         }
     });
 
