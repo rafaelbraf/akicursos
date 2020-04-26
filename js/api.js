@@ -150,12 +150,7 @@ async function mostrarCursos(res) {
 
 function mostrarCursoPorId(id) {
 
-    document.querySelector('#modal-ter').classList.add("is-active");
-    var footerModal = document.getElementById('footer-modal');
-    var tempFooter = "";
-    var tempBotao = "";
-
-    var imagem = "";
+    document.querySelector('#modal-ter').classList.add("is-active");    
 
     $.ajax({
         type: "GET",
